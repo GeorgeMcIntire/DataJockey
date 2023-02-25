@@ -1,1 +1,2 @@
-This is the repo for my dj data science project
+Repo for DJ data science project
+
