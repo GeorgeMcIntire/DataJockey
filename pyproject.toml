@@ -1,0 +1,11 @@
+[project]
+name = "project_tools"
+version = "0.0.1"
+
+
+[tool.setuptools]
+packages = ["project_tools"]
+
+[build-system]
+requires = ["setuptools>=51"]
+build-backend = "setuptools.build_meta"
