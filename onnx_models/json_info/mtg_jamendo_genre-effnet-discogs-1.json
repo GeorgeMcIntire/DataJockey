@@ -1,0 +1,152 @@
+{
+    "name": "mtg_jamendo_genre",
+    "type": "multi-label classifier",
+    "link": "https://essentia.upf.edu/models/classification-heads/mtg_jamendo_genre/mtg_jamendo_genre-effnet-discogs-1.pb",
+    "version": "1",
+    "description": "classification of music by genre from discogs-effnet embeddings",
+    "author": "Pablo Alonso",
+    "email": "pablo.alonso@upf.edu",
+    "release_date": "2022-11-20",
+    "framework": "tensorflow",
+    "framework_version": "2.8.0",
+    "classes": [
+        "60s",
+        "70s",
+        "80s",
+        "90s",
+        "acidjazz",
+        "alternative",
+        "alternativerock",
+        "ambient",
+        "atmospheric",
+        "blues",
+        "bluesrock",
+        "bossanova",
+        "breakbeat",
+        "celtic",
+        "chanson",
+        "chillout",
+        "choir",
+        "classical",
+        "classicrock",
+        "club",
+        "contemporary",
+        "country",
+        "dance",
+        "darkambient",
+        "darkwave",
+        "deephouse",
+        "disco",
+        "downtempo",
+        "drumnbass",
+        "dub",
+        "dubstep",
+        "easylistening",
+        "edm",
+        "electronic",
+        "electronica",
+        "electropop",
+        "ethno",
+        "eurodance",
+        "experimental",
+        "folk",
+        "funk",
+        "fusion",
+        "groove",
+        "grunge",
+        "hard",
+        "hardrock",
+        "hiphop",
+        "house",
+        "idm",
+        "improvisation",
+        "indie",
+        "industrial",
+        "instrumentalpop",
+        "instrumentalrock",
+        "jazz",
+        "jazzfusion",
+        "latin",
+        "lounge",
+        "medieval",
+        "metal",
+        "minimal",
+        "newage",
+        "newwave",
+        "orchestral",
+        "pop",
+        "popfolk",
+        "poprock",
+        "postrock",
+        "progressive",
+        "psychedelic",
+        "punkrock",
+        "rap",
+        "reggae",
+        "rnb",
+        "rock",
+        "rocknroll",
+        "singersongwriter",
+        "soul",
+        "soundtrack",
+        "swing",
+        "symphonic",
+        "synthpop",
+        "techno",
+        "trance",
+        "triphop",
+        "world",
+        "worldfusion"
+    ],
+    "model_types": [
+        "frozen_model"
+    ],
+    "dataset": {
+        "name": "MTG Jamendo Dataset (genre subset)",
+        "size": "55,215 full tracks",
+        "metrics": {
+            "test PR-AUC": 0.20,
+            "test ROC-AUC": 0.88
+        }
+    },
+    "schema": {
+        "inputs": [
+            {
+                "name": "model/Placeholder",
+                "type": "float",
+                "shape": [
+                    1280
+                ]
+            }
+        ],
+        "outputs": [
+            {
+                "name": "model/Sigmoid",
+                "type": "float",
+                "shape": [
+                    87
+                ],
+                "op": "Sigmoid"
+            },
+            {
+                "name": "model/dense_1/BiasAdd",
+                "type": "float",
+                "shape": [
+                    87
+                ],
+                "op": "fully connected",
+                "description": "logits"
+            },
+            {
+                "name": "model/dense/BiasAdd",
+                "type": "float",
+                "shape": [
+                    512
+                ],
+                "op": "fully connected",
+                "description": "penultimate layer"
+            }
+        ]
+    },
+    "citation": "@inproceedings{alonso2022music,\n  title={Music Representation Learning Based on Editorial Metadata from Discogs},\n  author={Alonso-Jim{\\'e}nez, Pablo and Serra, Xavier and Bogdanov, Dmitry},\n  booktitle={Conference of the International Society for Music Information Retrieval (ISMIR)},\n  year={2022}\n}"
+}

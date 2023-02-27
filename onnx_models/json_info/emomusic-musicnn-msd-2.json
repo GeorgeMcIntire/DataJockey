@@ -1,0 +1,66 @@
+{
+    "name": "arousal_valence",
+    "type": "regression model",
+    "link": "https://essentia.upf.edu/models/classification-heads/emomusic/emomusic-musicnn-msd-2.pb",
+    "version": "2",
+    "description": "Transfer Learning model for Music Emotion Recognition in Arousal-Valence domain with Essentia pretrained model, Musicnn, and DEAM dataset.",
+    "author": "Pablo Alonso",
+    "email": "pablo.alonso@upf.edu",
+    "release_date": "07/02/2023",
+    "framework": "tensorflow",
+    "framework_version": "2.6.0",
+    "classes": [
+        "valence",
+        "arousal"
+    ],
+    "programming_env": {
+        "language": "python",
+        "version": "3.7",
+        "others": ""
+    },
+    "model_types": [
+        "frozen_model"
+    ],
+    "dataset": {
+        "name": "emoMusic",
+        "size": "1000 songs",
+        "link": "https://cvml.unige.ch/databases/emoMusic/",
+        "metrics": {
+            "arousal": {
+                "Concordance Correlation Coefficient": 0.622,
+                "Pearson Correlation Coefficient": 0.821,
+                "R^2 Score": 0.646,
+                "Root Mean Square Error": 0.667
+            },
+            "valence": {
+                "Concordance Correlation Coefficient": 0.812,
+                "Pearson Correlation Coefficient": 0.736,
+                "R^2 Score": 0.515,
+                "Root Mean Square Error": 0.76
+            }
+        }
+    },
+    "schema": {
+        "inputs": [
+            {
+                "name": "model/Placeholder",
+                "type": "float",
+                "shape": [
+                    200
+                ]
+            }
+        ],
+        "outputs": [
+            {
+                "name": "model/Identity",
+                "type": "float",
+                "op": "Identity",
+                "shape": [
+                    2
+                ],
+                "description": "arousal-valence values represented as (valence, arousal) pairs."
+            }
+        ]
+    },
+    "citation": "@inproceedings{bogdanov2022musav,\n  title={MUSAV: a dataset of relative arousal-valence annotations for validation of audio models},\n  author={Bogdanov, Dmitry and Lizarraga Seijas, Xavier and Alonso-Jim{\\'e}nez, Pablo and Serra, Xavier},\n  booktitle={Conference of the International Society for Music Information Retrieval (ISMIR)},\n  year={2022}\n}"
+}

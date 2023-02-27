@@ -1,0 +1,57 @@
+{
+  "name": "MSD MusiCNN",
+  "type": "auto-tagging",
+  "link": "https://essentia.upf.edu/models/autotagging/msd/msd-musicnn-1.pb",
+  "version": "1",
+  "description": "prediction of the top-50 tags in the dataset",
+  "author": "Pablo Alonso",
+  "email": "pablo.alonso@upf.edu",
+  "release_date": "2020-03-31",
+  "framework": "tensorflow",
+  "framework_version": "1.15.0",
+  "classes": [
+    "rock", "pop", "alternative", "indie", "electronic", "female vocalists", "dance", "00s", "alternative rock", "jazz", "beautiful", "metal", "chillout", "male vocalists", "classic rock", "soul", "indie rock", "Mellow", "electronica", "80s", "folk", "90s", "chill", "instrumental", "punk", "oldies", "blues", "hard rock", "ambient", "acoustic", "experimental", "female vocalist", "guitar", "Hip-Hop", "70s", "party", "country", "easy listening", "sexy", "catchy", "funk", "electro", "heavy metal", "Progressive rock", "60s", "rnb", "indie pop", "sad", "House", "happy"],
+  "model_types": [
+    "frozen_model"],
+  "dataset": {
+    "name": "The Millon Song Dataset",
+    "citation": "http://millionsongdataset.com/",
+    "size": "200k up to two minutes audio previews",
+    "metrics": {
+      "ROC-AUC": 0.88,
+      "PR-AUC": 0.29
+    }
+  },
+  "schema": {
+    "inputs": [
+      {
+        "name": "model/Placeholder",
+        "type": "float",
+        "shape": [187, 96]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "model/Sigmoid",
+        "type": "float",
+        "shape": [1, 50],
+        "op": "Sigmoid"
+      },
+      {
+        "name": "model/dense_1/BiasAdd",
+        "type": "float",
+        "shape": [1, 50],
+        "op": "fully connected",
+        "description": "logits"
+      },
+      {
+        "name": "model/dense/BiasAdd",
+        "type": "float",
+        "shape": [1, 200],
+        "op": "fully connected",
+        "description": "embeddings"
+      }
+    ]
+  },
+  "citation": "@inproceedings{alonso2020tensorflow,\n  title={Tensorflow Audio Models in Essentia},\n  author={Alonso-Jim{\\'e}nez, Pablo and Bogdanov, Dmitry and Pons, Jordi and Serra, Xavier},\n  booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},\n  year={2020}\n}"
+}

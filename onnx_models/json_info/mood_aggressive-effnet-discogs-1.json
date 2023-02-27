@@ -1,0 +1,58 @@
+{
+    "name": "mood aggressive",
+    "type": "multi-class classifier",
+    "link": "https://essentia.upf.edu/models/classification-heads/mood_aggressive/mood_aggressive-discogs-effnet-1.pb",
+    "version": "2",
+    "description": "classification of music by mood (aggressive/non-aggressive)",
+    "author": "Pablo Alonso",
+    "email": "pablo.alonso@upf.edu",
+    "release_date": "2022-08-25",
+    "framework": "tensorflow",
+    "framework_version": "2.4.0",
+    "classes": [
+        "aggressive",
+        "not_aggressive"
+    ],
+    "model_types": [
+        "frozen_model"
+    ],
+    "dataset": {
+        "name": "In-house MTG collection ",
+        "citation": "@inproceedings{laurier2009music,\n  title={Music mood annotator design and integration},\n  author={Laurier, Cyril and Meyers, Owen and Serra, Joan and Blech, Martin and Herrera, Perfecto},\n  booktitle={2009 Seventh International Workshop on Content-Based Multimedia Indexing},\n  pages={156--161},\n  year={2009},\n  organization={IEEE}\n}",
+        "size": "280 full tracks + excerpts, 133/147 per class",
+        "metrics": {
+            "5-fold_cross_validation_normalized_accuracy": 0.98
+        }
+    },
+    "schema": {
+        "inputs": [
+            {
+                "name": "model/Placeholder",
+                "type": "float",
+                "shape": [
+                    1200
+                ]
+            }
+        ],
+        "outputs": [
+            {
+                "name": "model/Softmax",
+                "type": "float",
+                "shape": [
+                    2
+                ],
+                "op": "Softmax"
+            },
+            {
+                "name": "model/dense/BiasAdd",
+                "type": "float",
+                "shape": [
+                    100
+                ],
+                "op": "fully connected",
+                "description": "penultimate layer"
+            }
+        ]
+    },
+    "citation": ""
+}

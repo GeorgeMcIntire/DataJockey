@@ -1,0 +1,57 @@
+{
+    "name": "danceability classifier",
+    "type": "multi-class classifier",
+    "link": "https://essentia.upf.edu/models/classification-heads/danceability/danceability-msd-musicnn-1pb",
+    "version": "2",
+    "description": "classification of music by danceability",
+    "author": "Pablo Alonso",
+    "email": "pablo.alonso@upf.edu",
+    "release_date": "2022-08-25",
+    "framework": "tensorflow",
+    "framework_version": "2.4.0",
+    "classes": [
+        "danceable",
+        "not_danceable"
+    ],
+    "model_types": [
+        "frozen_model"
+    ],
+    "dataset": {
+        "name": "In-house MTG collection",
+        "size": "306 full tracks, 124/182 per class",
+        "metrics": {
+            "5-fold_cross_validation_normalized_accuracy": 0.95
+        }
+    },
+    "schema": {
+        "inputs": [
+            {
+                "name": "model/Placeholder",
+                "type": "float",
+                "shape": [
+                    200
+                ]
+            }
+        ],
+        "outputs": [
+            {
+                "name": "model/Softmax",
+                "type": "float",
+                "shape": [
+                    2
+                ],
+                "op": "Softmax"
+            },
+            {
+                "name": "model/dense/BiasAdd",
+                "type": "float",
+                "shape": [
+                    100
+                ],
+                "op": "fully connected",
+                "description": "penultimate layer"
+            }
+        ]
+    },
+    "citation": ""
+}
