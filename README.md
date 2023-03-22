@@ -2,7 +2,7 @@
 ## George McIntire aka Jaage
 
 
-This is the repo for my ongoing DJ data science project. =
+This is the repo for my ongoing DJ data science project
 
 
 ### Set up Environment
@@ -25,7 +25,10 @@ Steps to set up the environment and packaging I used for the project:
 The notebooks used in my ETL and analysis
 
 - [Processor](Processor.ipynb)
-- [EDA Part 1](EDA\ Part\ 1.ipynb)
-- [EDA Effnet Genres](EDA\ Effnet\ Genres.ipynb)
-- [EDA Style Classification](EDA\ Style\ Classification.ipynb)
+
+- [EDA Part 1](EDA%Part%1.ipynb)
+
+- [EDA Effnet Genres](EDA%Effnet%Genres.ipynb)
+
+- [EDA Style Classification](EDA%Style%Classification.ipynb)
 
