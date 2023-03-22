@@ -8,11 +8,16 @@ This is the repo for my ongoing DJ data science project. =
 ### Set up Environment
 
 Steps to set up the environment and packaging I used for the project:
-`conda create -n music python=3.7`
-`conda activate music`
-`pip install -r requirements.txt`
-Install project tools package
-`pip install -e .`
+
+- `conda create -n music python=3.7`
+
+- `conda activate music`
+
+- `pip install -r requirements.txt`
+
+- Install project tools package
+
+- `pip install -e .`
 
 
 ### Notebooks
