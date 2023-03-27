@@ -13,17 +13,18 @@ import pandas as pd
 from glob import glob
 from project_tools.utils import json_opener, digit2letters
 import inflect
+import yaml
 
-FFT_HOP = 256
-FFT_SIZE = 512
-N_MELS = 96
-
-
+with open("settings.yaml") as f:
+	spectrogram_cfg = yaml.full_load(f)["spectrogram"]
+	
+FFT_HOP = spectrogram_cfg["FFT_HOP"]
+FFT_SIZE = spectrogram_cfg["FFT_SIZE"]
+N_MELS = spectrogram_cfg["N_MELS"]
 
 
 class Activator:   
-	def __init__(self, input_length, model_path,pathid_dict,
-				SR = 16000, FFT_HOP = FFT_HOP, FFT_SIZE= FFT_SIZE, N_MELS = N_MELS):    
+	def __init__(self, input_length, model_path,pathid_dict, SR = 16000, FFT_HOP = FFT_HOP, FFT_SIZE= FFT_SIZE, N_MELS = N_MELS):
 		self.FFT_HOP = FFT_HOP
 		self.FFT_SIZE = FFT_SIZE
 		self.N_MELS = N_MELS
@@ -35,13 +36,9 @@ class Activator:
 		self.input_name = self.model.graph.input[0].name
 		self.song_files = pathid_dict.items()
 		
-	def spectro2batch(self, song_file):
+	def spectro2batch(self, song_file:str) -> np.ndarray:
 		signal,_ = librosa.load(song_file, sr = self.SR)
-		audio_rep = librosa.feature.melspectrogram(y=signal, 
-											sr=self.SR,
-											hop_length=self.FFT_HOP,
-											n_fft=self.FFT_SIZE,
-											n_mels=self.N_MELS).T
+		audio_rep = librosa.feature.melspectrogram(y=signal,sr=self.SR,hop_length=self.FFT_HOP,n_fft=self.FFT_SIZE, n_mels=self.N_MELS).T
 		audio_rep = audio_rep.astype(np.float16)
 		audio_rep = np.log10(10000 * audio_rep + 1)
 		last_frame = audio_rep.shape[0] - self.n_frames + 1
@@ -55,8 +52,7 @@ class Activator:
 				batch = np.concatenate((batch, patch), axis=0)
 		return batch
 	
-	def _inference(self, batch):
-		
+	def _inference(self, batch:np.ndarray) -> dict:
 		outputs = self.ort_session.run(None,{self.input_name: batch},)  
 		o_names = [i.name for i in self.model.graph.output]
 		outputs = dict(zip(o_names, outputs))
@@ -90,17 +86,15 @@ class Classifier:
 		with self.conn:
 			self.cur.execute(tbl_query)
 			
-	def _inference(self, batch):
+	def _inference(self, batch:np.ndarray) -> np.ndarray:
 		outputs = self.ort_session.run(None,{self.input_name: batch})
 		return outputs[0]
 	
-	def _create_ins_query(self):
+	def _create_ins_query(self) -> str:
 		col_names = ", ".join(self.classes)
 		q = ["?"]*len(self.classes)
 		q = ",".join(q)
-		ins_query = "INSERT INTO {} (sid, {}) values (?,{})".format(self.table_name, 
-																	col_names,
-																	q)
+		ins_query = "INSERT INTO {} (sid, {}) values (?,{})".format(self.table_name, col_names, q)
 		return ins_query
 	
 	

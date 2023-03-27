@@ -1,41 +1,32 @@
 import numpy as np
-from tqdm import tqdm
-import onnx
-import onnxruntime as ort
-import librosa
 import os
-from time import time
-import matplotlib.pyplot as plt
 import io
-import pandas as pd
 import json
 import inflect
-
-from glob import glob
+from typing import Union
 import sqlite3
 
-effnet_config = dict(FFT_HOP = 256, FFT_SIZE = 512, N_MELS = 96)
 
 p = inflect.engine()
 
-def adapt_array(arr):
+def adapt_array(arr:np.ndarray) -> memoryview:
 	out = io.BytesIO()
 	np.save(out, arr)
 	out.seek(0)
 	return sqlite3.Binary(out.read())
 
-def convert_array(text):
+def convert_array(text:memoryview) -> np.ndarray:
 	out = io.BytesIO(text)
 	out.seek(0)
-	return np.load(out)
+	return np.load(out, allow_pickle=True)
 
-def json_opener(jay):
+def json_opener(jay:str) -> str:
 	with open(jay) as f:
 		output = json.load(f)
 	return output
 
 
-def tag_cleaner(x):
+def tag_cleaner(x) -> Union[str, int, float]:
 	if type(x) != list:
 		return x
 	l = list(set(x))
@@ -46,7 +37,7 @@ def tag_cleaner(x):
 	else:
 		return np.nan
 	
-def digit2letters(digits):
+def digit2letters(digits:str) -> str:
 	if not digits[0].isdigit():
 		return digits
 	num = p.number_to_words(digits)

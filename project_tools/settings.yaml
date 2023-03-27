@@ -1,0 +1,4 @@
+spectrogram:
+    FFT_SIZE: 512
+    N_MELS: 96
+    FFT_HOP: 256
