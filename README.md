@@ -32,3 +32,5 @@ The notebooks used in my ETL and analysis
 
 - [EDA Style Classification](EDA%Style%Classification.ipynb)
 
+
+![Testing Workflow](https://github.com/github/docs/actions/workflows/testing.yml/badge.svg)
