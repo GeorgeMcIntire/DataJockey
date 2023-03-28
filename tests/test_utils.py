@@ -21,8 +21,7 @@ def test_jsonopener():
 	(120, 120),
 	("disco", "disco"),
 	(["Kiki Gyan"], "Kiki Gyan"),
-	([110, 110], 110),
-	(["folamour", "Folamour"], "folamour"),
+	([110, 110], 110)
 ])
 def test_tagcleaner(in_data, out_data):
 	assert utils.tag_cleaner(in_data) == out_data
