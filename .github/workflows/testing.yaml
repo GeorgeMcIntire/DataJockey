@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install numpy
+          pip install inflect
           pip install -e .
       - name: Test with pytest
         run: pytest
