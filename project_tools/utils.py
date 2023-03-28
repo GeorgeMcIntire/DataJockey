@@ -29,7 +29,7 @@ def json_opener(jay:str) -> str:
 def tag_cleaner(x) -> Union[str, int, float]:
 	if type(x) != list:
 		return x
-	l = list(set(x))
+	l = sorted(set(x))
 	if len(l) == 1:
 		return l[0]
 	elif len(l) ==2:

@@ -1,5 +1,6 @@
 import numpy as np
 import pytest
+import os
 from project_tools import utils
 
 @pytest.mark.parametrize("number_form, letter_form", [
@@ -13,14 +14,15 @@ def test_digit2letters(number_form, letter_form):
 	
 
 def test_jsonopener():
-	assert type(utils.json_opener("/Users/georgemcintire/projects/djing/project_tools/tests/test_example.json")) == dict
+	fname = os.path.join(os.path.dirname(__file__), "test_example.json")
+	assert type(utils.json_opener(fname)) == dict
 	
 @pytest.mark.parametrize("in_data, out_data", [
 	(120, 120),
 	("disco", "disco"),
 	(["Kiki Gyan"], "Kiki Gyan"),
 	([110, 110], 110),
-	(["Folamour", "folamour"], "Folamour"),
+	(["folamour", "Folamour"], "folamour"),
 ])
 def test_tagcleaner(in_data, out_data):
 	assert utils.tag_cleaner(in_data) == out_data
