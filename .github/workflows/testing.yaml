@@ -1,4 +1,5 @@
-name: Python package
+name: Project Tools Testing
+
 
 on: [push]
 
@@ -6,18 +7,20 @@ jobs:
   build:
   
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        python-version: "3.7"
+        
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.7'
-    - name: Install dependencies
-      run: |
-	python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install -e .
-    - name: Test with pytest
-      run: |
-        pytest
+      - uses: actions/checkout@v3
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # Install pip and pytest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: Test with pytest
+        run: pytest
