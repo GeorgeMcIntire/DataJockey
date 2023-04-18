@@ -24,13 +24,13 @@ Steps to set up the environment and packaging I used for the project:
 
 The notebooks used in my ETL and analysis
 
-- [Processor](Processor.ipynb)
+- [Processor](Notebooks/Processor.ipynb)
 
-- [EDA Part 1](EDA%Part%1.ipynb)
+- [EDA Part 1](Notebooks/EDA%Part%1.ipynb)
 
-- [EDA Effnet Genres](EDA%Effnet%Genres.ipynb)
+- [EDA Effnet Genres](Notebooks/EDA%Effnet%Genres.ipynb)
 
-- [EDA Style Classification](EDA%Style%Classification.ipynb)
+- [EDA Style Classification](Notebooks/EDA%Style%Classification.ipynb)
 
 
 ![Testing Workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
