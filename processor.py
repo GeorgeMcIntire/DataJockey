@@ -42,8 +42,8 @@ sqlite3.register_converter("array", convert_array)
 conn = sqlite3.connect("jaage.db", detect_types= sqlite3.PARSE_DECLTYPES)
 cur = conn.cursor()
 
-load_path = "../../../../Volumes/LaCie/Loading Dock/"
-dj_hub  = "../../../../Volumes/LaCie/DJ Hub/"
+load_path = "/Volumes/LaCie/Loading Dock/"
+dj_hub  = "/Volumes/LaCie/DJ Hub/"
 zip_files = glob(load_path+"*.zip")
 
 if len(zip_files) > 0:
@@ -60,7 +60,7 @@ print("There are {} files for the ETL pipeline".format(len_loading_files))
 loading_files = pathlib.Path(load_path).glob("*[.wav, .mp3, .aiff]")
 
 
-ref_file = '../../../../Volumes/LaCie/DJ Hub/Rayko - Magnetized (Rayko rework).wav'
+ref_file = '/Volumes/LaCie/DJ Hub/Rayko - Magnetized (Rayko rework).wav'
 #The directory where all my music is stored.
 collection = "Collection"
 

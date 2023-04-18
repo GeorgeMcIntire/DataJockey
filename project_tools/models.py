@@ -11,7 +11,7 @@ from time import time
 import matplotlib.pyplot as plt
 import pandas as pd
 from glob import glob
-from project_tools.utils import json_opener, digit2letters
+from .utils import json_opener, digit2letters
 import inflect
 import yaml
 
@@ -67,7 +67,7 @@ class Activator:
 
 
 class Classifier:
-	def __init__(self,model_info,new_ids,  db="jaage.db"):
+	def __init__(self,model_info,new_ids,  db="/Users/georgemcintire/projects/djing/jaage.db"):
 		self.model = onnx.load(model_info["model"])
 		self.model_path = model_info["model"]
 		self.classes = json_opener(model_info["json"])["classes"]
