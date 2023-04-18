@@ -24,7 +24,6 @@ jobs:
           pip install pytest
           pip install onnx
           pip install pandas
-          pip install sqlite3
           pip install numpy
           pip install inflect
           pip install tqdm
