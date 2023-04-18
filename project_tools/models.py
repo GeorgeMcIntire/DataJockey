@@ -14,7 +14,7 @@ from .utils import json_opener, digit2letters
 import inflect
 import yaml
 
-with open("/Users/georgemcintire/projects/djing/project_tools/settings.yaml") as f:
+with open("settings.yaml") as f:
 	spectrogram_cfg = yaml.full_load(f)["spectrogram"]
 	
 FFT_HOP = spectrogram_cfg["FFT_HOP"]
