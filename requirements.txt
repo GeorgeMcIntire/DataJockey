@@ -246,3 +246,210 @@ wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 yarl==1.8.2
 youtube-dl==2021.12.17
 zipp==3.13.0
+absl-py==1.4.0
+aiofiles==0.8.0
+aiohttp==3.8.4
+aiosignal==1.3.1
+aiosqlite==0.17.0
+alabaster==0.7.13
+annoy==1.17.1
+appdirs==1.4.4
+appnope @ file:///opt/concourse/worker/volumes/live/4f734db2-9ca8-4d8b-5b29-6ca15b4b4772/volume/appnope_1606859466979/work
+astor==0.8.1
+astunparse==1.6.3
+async-generator==1.10
+async-timeout==4.0.2
+asyncio-extras==1.3.2
+asyncpraw==7.6.1
+asyncprawcore==2.3.0
+asynctest==0.13.0
+attrs==22.2.0
+audioread==3.0.0
+awscli==1.27.45
+Babel==2.12.1
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+beautifulsoup4==4.11.1
+beets==1.6.0
+botocore==1.29.45
+cachetools==5.3.0
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_83242e7e-f82d-4a71-8ef2-9d71d212d249gu_wxmeq/croots/recipe/certifi_1655968827803/work/certifi
+cffi==1.15.1
+charset-normalizer==2.0.12
+click==8.0.0a1
+cohere==3.8.0
+colorama==0.4.4
+coloredlogs==15.0.1
+confuse==2.0.0
+coverage==5.5
+cvae==0.0.3
+cycler==0.11.0
+debugpy @ file:///opt/concourse/worker/volumes/live/32b11d06-4d64-4ec8-497a-cf4fc97343d2/volume/debugpy_1637091821874/work
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+deprecation==2.1.0
+distlib==0.3.6
+dj-beatcloud==2.4.0
+docutils==0.16
+entrypoints @ file:///opt/concourse/worker/volumes/live/194c0a28-55ce-4e83-6a87-0d9f2e06ab2c/volume/entrypoints_1649926487944/work
+essentia==2.1b6.dev871
+exceptiongroup==1.1.0
+eyed3==0.9.7
+fastjsonschema==2.16.3
+filelock==3.9.0
+filetype==1.2.0
+flatbuffers==23.1.21
+fonttools==4.38.0
+frozenlist==1.3.3
+fuzzywuzzy==0.18.0
+gast==0.2.2
+google-auth==2.16.2
+google-auth-oauthlib==0.4.6
+google-pasta==0.2.0
+grpcio==1.51.1
+h5py==2.10.0
+humanfriendly==10.0
+idna==3.4
+imagesize==1.4.1
+importlib-metadata==6.0.0
+importlib-resources==5.10.2
+inflect==6.0.2
+iniconfig==2.0.0
+ipykernel @ file:///opt/concourse/worker/volumes/live/c21734a4-132a-471d-7fe9-76688d5488be/volume/ipykernel_1647000841085/work/dist/ipykernel-6.9.1-py3-none-any.whl
+ipython @ file:///opt/concourse/worker/volumes/live/333da4fb-3db0-439c-4a1b-ee802c44da4f/volume/ipython_1643818165055/work
+jedi @ file:///opt/concourse/worker/volumes/live/c9d2fa99-8bc1-4572-41e7-6beba6391441/volume/jedi_1644315238822/work
+jellyfish==0.9.0
+Jinja2==3.1.2
+jmespath==1.0.1
+joblib==1.2.0
+jsonlines==3.1.0
+jsonschema==4.17.3
+jupyter-client @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4d0a367d-74c5-447f-831e-3e1fd3984797bfrg56pj/croots/recipe/jupyter_client_1650622206454/work
+jupyter-core @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_8ba802e0-15f6-4a45-a9ee-144034526783uwxtvvew/croots/recipe/jupyter_core_1651671235924/work
+keras==2.9.0
+Keras-Applications==1.0.8
+Keras-Preprocessing==1.1.2
+kiwisolver==1.4.4
+lazy_loader==0.1
+Levenshtein==0.20.9
+libclang==15.0.6.1
+librosa==0.10.0.post2
+llvmlite==0.39.1
+loguru==0.6.0
+lxml==4.9.2
+Markdown==3.4.1
+markdown-it-py==2.2.0
+MarkupSafe==2.1.2
+matchering==2.0.3
+matplotlib==3.5.3
+matplotlib-inline @ file:///tmp/build/80754af9/matplotlib-inline_1628242447089/work
+mdurl==0.1.2
+mediafile==0.11.0
+mpmath==1.2.1
+msgpack==1.0.4
+multidict==6.0.4
+munkres==1.1.4
+musicbrainzngs==0.7.1
+mutagen==1.46.0
+nbformat==5.7.3
+nest-asyncio @ file:///opt/concourse/worker/volumes/live/bf4e1da0-0622-4bab-4608-fdb487494886/volume/nest-asyncio_1649847922626/work
+nomic==1.0.44
+numba==0.56.4
+numpy==1.21.6
+oauthlib==3.2.2
+onnx==1.13.1
+onnxruntime==1.14.0
+opt-einsum==3.3.0
+packaging==23.0
+pandas==1.3.5
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+patsy==0.5.3
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+pickle5==0.0.12
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+Pillow==9.4.0
+pkgutil_resolve_name==1.3.10
+platformdirs==3.0.0
+plotly==5.13.1
+pluggy==1.0.0
+pooch==1.6.0
+-e git+https://github.com/GeorgeMcIntire/DJ_Data_Science.git@d36dd34823ca5793556622c7e68225470b60866d#egg=project_tools
+prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
+protobuf==3.20.3
+psutil==5.9.4
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pyarrow==11.0.0
+pyasn1==0.4.8
+pyasn1-modules==0.3.0rc1
+pycparser==2.21
+pydantic==1.9.1
+pydub==0.25.1
+Pygments==2.14.0
+pyparsing==3.0.9
+pyperclip==1.8.2
+pyrsistent==0.19.3
+pytaglib==1.5.0
+pytest==7.2.0
+pytest-asyncio==0.20.3
+pytest-cov==4.0.0
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-Levenshtein==0.20.9
+pytz==2022.7.1
+PyYAML==5.4.1
+pyzmq @ file:///opt/concourse/worker/volumes/live/7dec6841-64b1-4d95-7226-ce37c6ca8915/volume/pyzmq_1638435000749/work
+rapidfuzz==2.13.7
+ray==2.2.0
+redis==4.5.1
+requests==2.28.0
+requests-oauthlib==1.3.1
+resampy==0.4.2
+rich==13.3.1
+rsa==4.7.2
+ruamel.yaml==0.16.12
+ruamel.yaml.clib==0.2.7
+s3transfer==0.6.0
+scikit-learn==1.0.2
+scipy==1.7.3
+scooch==1.0.2
+seaborn==0.12.2
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+snowballstemmer==2.2.0
+soundfile==0.12.1
+soupsieve==2.4
+soxr==0.3.3
+Sphinx==6.1.3
+sphinx-rtd-theme==0.5.1
+sphinxcontrib-applehelp==1.0.4
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.1
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
+spotipy==2.21.0
+statsmodels==0.13.5
+sxmp-mule==1.1.0
+sympy==1.10.1
+tenacity==8.2.2
+tensorboard==1.15.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.9.1
+tensorflow-estimator==1.15.1
+tensorflow-io-gcs-filesystem==0.31.0
+termcolor==2.2.0
+threadpoolctl==3.1.0
+toml==0.10.2
+tomli==2.0.1
+tornado @ file:///opt/concourse/worker/volumes/live/d531d395-893c-4ca1-6a5f-717b318eb08c/volume/tornado_1606942307627/work
+tqdm==4.64.0
+traitlets @ file:///tmp/build/80754af9/traitlets_1636710298902/work
+typing_extensions==4.5.0
+Unidecode==1.3.6
+update-checker==0.18.0
+urllib3==1.26.14
+virtualenv==20.19.0
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+Werkzeug==2.2.3
+wonderwords==2.2.0
+wrapt==1.15.0
+yarl==1.8.2
+youtube-dl==2021.12.17
+zipp==3.13.0
