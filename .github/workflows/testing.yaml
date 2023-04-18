@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install onnx
+          pip install onnxruntime
           pip install pandas
           pip install numpy
           pip install inflect
