@@ -8,7 +8,6 @@ import json
 import os
 import io
 from time import time
-import matplotlib.pyplot as plt
 import pandas as pd
 from glob import glob
 from .utils import json_opener, digit2letters
