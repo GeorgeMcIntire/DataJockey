@@ -33,7 +33,7 @@ warnings.filterwarnings('ignore')
 pd.set_option('max_colwidth', 100)
 
 
-from project_tools.utils import effnet_config, json_opener, adapt_array, convert_array, tag_cleaner, digit2letters
+from project_tools.utils import json_opener, adapt_array, convert_array, tag_cleaner, digit2letters
 from project_tools.models import Activator, Classifier
 
 sqlite3.register_adapter(np.ndarray, adapt_array)
