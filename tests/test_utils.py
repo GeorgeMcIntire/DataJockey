@@ -14,7 +14,7 @@ def test_digit2letters(number_form, letter_form):
 	
 
 def test_jsonopener():
-	fname = os.path.join(os.path.dirname(__file__), "test_example.json")
+#	fname = os.path.join(os.path.dirname(__file__), "test_example.json")
 	fname = "test_example.json"
 	assert type(utils.json_opener(fname)) == dict
 	
