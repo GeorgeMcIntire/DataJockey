@@ -13,13 +13,11 @@ from glob import glob
 from .utils import json_opener, digit2letters
 import inflect
 import yaml
+from inspect import getsourcefile
 
-fname = os.path.join(os.getcwd(), "project_tools/settings.yaml")
-fname = "project_tools/settings.yaml"
 
-#fname = os.path.join(os.path.dirname, 'project_tools/settings.yaml')
-
-fname = os.path.join(os.path.dirname(os.getcwd()), 'project_tools/settings.yaml')
+_this_module_file_path_ = os.path.abspath(getsourcefile(lambda: 0))
+fname = os.path.join(os.path.dirname(_this_module_file_path_), "settings.yaml")
 with open(fname) as f:
 	spectrogram_cfg = yaml.full_load(f)["spectrogram"]
 	

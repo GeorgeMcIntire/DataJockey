@@ -187,9 +187,10 @@ for song in act.batch_inference():
         embeds = output["embeddings"]
         genre_acts = [np.expand_dims(genre_acts[:, i], 0) for i in range(400)]
         genre_acts = pd.DataFrame(index = [sid], data = [genre_acts], columns=gcols)
+        genre_acts.index.rename("sid",inplace=True)
         cur.execute("INSERT INTO effnet_embeddings (sid, effnet_embedding) values (?,?)", 
                     (sid, np.expand_dims(embeds,0)))
-        genre_acts.to_sql("effnet_genres", con=conn, if_exists="append", index=False)
+        genre_acts.to_sql("effnet_genres", con=conn, if_exists="append")
     conn.commit()
 
 model_paths = sorted(glob("onnx_models/*.onnx"))
