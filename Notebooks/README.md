@@ -1,7 +1,11 @@
-# Notebook Directory
+### Notebook Directory
 
+The notebooks used in my ETL and analysis
 
-- Notebook2
-- Notebook3
-- Notebook4
-- Notebook5
+- [Processor](Processor.ipynb)
+
+- [EDA Part 1](EDA%Part%1.ipynb)
+
+- [EDA Effnet Genres](EDA%Effnet%Genres.ipynb)
+
+- [EDA Style Classification](EDA%Style%Classification.ipynb)
