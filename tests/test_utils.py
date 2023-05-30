@@ -44,4 +44,22 @@ def test_convert_array():
 	
 	# test if the function returns the original array after conversion
 	assert np.array_equal(utils.convert_array(memoryview(utils.adapt_array(test_array))), test_array)
-	
+
+@pytest.mark.parametrize("key1, key2, thresh, result", [
+	("6A", "7A", 2, True),
+	("5A", "5B", 2, True),
+	("12A", "1A", 2, True),
+	("4A","6A", 2, False),
+	("2A","8B", 2, False),
+	("9A","4A", 2, False),
+])
+def test_key_matcher(key1, key2,thresh, result):
+    assert utils.key_matcher(key1, key2, thresh) == result
+    
+@pytest.mark.parametrize("key, camelot_key", [
+	("Gminor", "6A"),
+	("Aminor", "8A"),
+	("Amajor", "11B"),
+])  
+def test_camelot_converter(key, camelot_key):
+    assert utils.camelot_convert(key) == camelot_key

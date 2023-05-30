@@ -1,6 +1,6 @@
 
-# Data Jockey
-## George McIntire aka Jaage
+# Data Jockey 
+## DJing with Data Science
 
 ![](https://i.ibb.co/GM25ZpF/horizontal-logo.jpg)
 
@@ -23,7 +23,7 @@ This repo holds the on-going analyses I conduct on the data extracted from Essen
 
 #### Methodologies?
 
-The first big ste
+
 
  - Data
 
