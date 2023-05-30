@@ -1,7 +1,7 @@
 # DJ Data Science Project
 ## George McIntire aka Jaage
 
-![](horizontal logo)
+![](horizontal logo.png)
 
 This is the repo for my ongoing DJ data science project
 
