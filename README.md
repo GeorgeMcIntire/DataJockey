@@ -14,7 +14,6 @@ Hi! My name is George McIntire aka [Jaage](https://www.instagram.com/jaage_dj/),
 I would to like present a passion project of mine that combines my two professions: Data Jockey. This project applies my data science expertise towards analyzing my collection of songs. With machine learning's increasing ability to process, synthesize, and even generate music, I became  inspired to dive in and see if big data algorithms could help me better understand my musical oeuvre and perhaps optimize my routine DJ activities.
 
 ### Project Overview
-
 ![](nomic_plot.png)
 
 "Data Jockey" is a comprehensive and ongoing project that incorporates a wide variety of data tools and methodologies. I've been working on it in a part-time capacity since September 2022 and I am finally ready to publish the first stage of the project. 
