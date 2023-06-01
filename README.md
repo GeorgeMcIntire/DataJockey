@@ -15,6 +15,8 @@ I would to like present a passion project of mine that combines my two professio
 
 ### Project Overview
 
+![](nomic_plot.png)
+
 "Data Jockey" is a comprehensive and ongoing project that incorporates a wide variety of data tools and methodologies. I've been working on it in a part-time capacity since September 2022 and I am finally ready to publish the first stage of the project. 
 
 At the core of the project is [Essentia](https://essentia.upf.edu/), an "open-source library and tools for audio and music analysis, description and synthesis." I used to Essentia to process, extract data from, and classify the 4000 songs in my collection. I would like to express my gratitude to their team  for making this project happen.
@@ -42,3 +44,4 @@ Steps to set up the environment and packaging I used for the project:
 
 
 ![Testing Workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+    
