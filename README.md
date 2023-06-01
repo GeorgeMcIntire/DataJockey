@@ -11,7 +11,7 @@
 
 Hi! My name is George McIntire aka [Jaage](https://www.instagram.com/jaage_dj/), I'm a data scientist by day and DJ by night. I play disco, funk, boogie, and house music from all over the world. You can check out my mixes on my [mixcloud](https://www.mixcloud.com/jaage/).
 
-I would to like present a passion project of mine that combines my two professions: Data Jockey. This project applies my data science expertise towards analyzing my collection of songs. With machine learning's increasing ability to process, synthesize, and even generate music, I became  inspired to dive in and see if big data algorithms could help me better understand my musical oeuvre and perhaps optimize my routine DJ activities.
+I would like to present a passion project of mine that combines my two professions: Data Jockey. This project applies my data science expertise towards analyzing my collection of songs. With machine learning's increasing ability to process, synthesize, and even generate music, I became  inspired to dive in and see if big data algorithms could help me better understand my musical oeuvre and perhaps optimize my routine DJ activities.
 
 ### Project Overview
 ![](nomic_plot.png)
