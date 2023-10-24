@@ -75,7 +75,6 @@ deprecation==2.1.0
 diffq==0.2.4
 dill==0.3.6
 distlib==0.3.6
-dj-beatcloud==2.4.0
 Django==3.2.16
 django-annoying==0.10.6
 django-cors-headers==3.6.0
