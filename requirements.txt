@@ -96,7 +96,6 @@ drf-generators==0.3.0
 drf-yasg==1.20.0
 einops==0.6.1
 esda==2.4.3
-essentia==2.1b6.dev871
 exceptiongroup==1.1.0
 expiringdict==1.2.2
 eyed3==0.9.7
