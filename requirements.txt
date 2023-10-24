@@ -257,7 +257,6 @@ pluggy==1.0.0
 pointpats==2.2.0
 pooch==1.6.0
 proglog==0.1.10
--e git+https://github.com/GeorgeMcIntire/DJ_Data_Science.git@f160962ddee11b9109ecd532cd76f7e4c58efda5#egg=project_tools
 prometheus-client==0.16.0
 proto-plus==1.22.2
 protobuf==3.19.6
