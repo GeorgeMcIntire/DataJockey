@@ -28,6 +28,7 @@ jobs:
           pip install onnxruntime
           pip install pandas
           pip install numpy
+          pip install boto3
           pip install inflect
           pip install tqdm
           pip install -e .
