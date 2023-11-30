@@ -222,10 +222,10 @@ def setlist_generator(ref_id:str, dist_matrix:pd.DataFrame,tags:pd.DataFrame, bp
 
 def s3_uploader(files_dict):
 
-    aws_access_key_id = 'AKIAQLMSLNP7WVRCCBE6'
-    aws_secret_access_key = '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'
-    aws_region = 'us-east-1'
-    bucket_name = 'sagemaker-us-east-1-024466123775'
+    aws_access_key_id = ''
+    aws_secret_access_key = ''
+    aws_region = ''
+    bucket_name = ''
     s3_key = 'song_files/{}{}'
 
 # Create a Lambda client
