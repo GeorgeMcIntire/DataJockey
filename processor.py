@@ -29,11 +29,13 @@ import os
 from essentia.standard import MusicExtractor, YamlOutput,MetadataReader, PCA, YamlInput
 import warnings
 from zipfile import ZipFile
+from mule import Analysis
+from scooch import Config
 warnings.filterwarnings('ignore')
 pd.set_option('max_colwidth', 100)
 
 
-from project_tools.utils import json_opener, adapt_array, convert_array, tag_cleaner, digit2letters
+from project_tools.utils import json_opener, adapt_array, convert_array, tag_cleaner, digit2letters, fix_gcols, clear_directory, s3_uploader
 from project_tools.models import Activator, Classifier
 
 sqlite3.register_adapter(np.ndarray, adapt_array)
@@ -106,6 +108,7 @@ music_ext = MusicExtractor(lowlevelStats=['mean', 'stdev'],
                            gfccStats = ["mean", "cov"])
 
 
+ids = pd.read_sql_query("SELECT sid FROM tags", con = conn).sid.tolist()
 
 out_dir = 'temp_features/'
 extracted_files = []
@@ -115,6 +118,9 @@ for fil in tqdm(new_file_paths, total = len(new_file_paths)):
     try:
         features, _ = music_ext(fil)
         idd = features['metadata.audio_properties.md5_encoded']
+        if idd in ids:
+          print(f"{fil} already in db")
+          continue
         YamlOutput(filename= out_dir+"features.json", format="json")(features)
         json_data = json_opener(out_dir+"features.json")
         id_2_paths[idd] = fil
@@ -172,13 +178,37 @@ for col in tqdm(list_cols):
     ser = list_data[col].apply(pd.Series)
     ser.columns = col + "_"+ ser.columns.astype(str)
     ser.to_sql(col+"_tbl", con = conn,if_exists="append")
+    
+    
+cfg_avg = Config("/Users/georgemcintire/projects/djing/music-audio-representations/supporting_data/configs/mule_embedding_average.yml")
+cfg_avg["Analysis"]["feature_transforms"][1]['EmbeddingFeature']['model_location'] = "/Users/georgemcintire/projects/djing/music-audio-representations/supporting_data/model"
+cfg_avg["Analysis"]["source_feature"]["AudioWaveform"]["input_file"]["AudioFile"]['sample_rate'] = 16000
+
+analysis = Analysis(cfg_avg)  
+    
+    
+for sid, song_file in tqdm(id_2_paths.items(), desc = 'Mule Embeddings Extraction'):
+    data = analysis.analyze(song_file).data.T
+#     data = file2embed(song_file).data.T
+    out = pd.DataFrame(index=[sid], data = data)
+    out.index.rename("sid",inplace=True)
+    out.to_sql("mule_embeddings", con = conn, if_exists="append")
+  
+  
 
 path2id = {v:k for k, v in id_2_paths.items()}
 act = Activator(input_length=2.05, 
                 model_path="onnx_models/discogs-effnet-bsdynamic-1.onnx",
                    pathid_dict=path2id)
 
-gcols = pd.read_sql_query("SELECT * FROM effnet_genres LIMIT 1 ", con = conn).columns[1:].tolist()
+
+
+with open("onnx_models/json_info/discogs-effnet-bsdynamic-1.json") as f:
+    gcols = json.load(f)["classes"]
+    gcols = [fix_gcols(i) for i in gcols]
+  
+  
+keep_gcols = np.load("keep_genre_cols.pkl", allow_pickle = True)
 
 for song in act.batch_inference():
     with conn:
@@ -188,9 +218,12 @@ for song in act.batch_inference():
         genre_acts = [np.expand_dims(genre_acts[:, i], 0) for i in range(400)]
         genre_acts = pd.DataFrame(index = [sid], data = [genre_acts], columns=gcols)
         genre_acts.index.rename("sid",inplace=True)
+        genre_acts = genre_acts[keep_gcols]
+        genre_acts_means = genre_acts.applymap(lambda x:x[0].mean())
         cur.execute("INSERT INTO effnet_embeddings (sid, effnet_embedding) values (?,?)", 
-                    (sid, np.expand_dims(embeds,0)))
+              (sid, np.expand_dims(embeds,0)))
         genre_acts.to_sql("effnet_genres", con=conn, if_exists="append")
+        genre_acts_means.to_sql("effnet_genres_mean", con = conn, if_exists = "append")
     conn.commit()
 
 model_paths = sorted(glob("onnx_models/*.onnx"))
@@ -207,3 +240,7 @@ for em in effnet_models:
     cls.batch_inference()
     cls.conn.commit()
     print("Completed => ", cls.table_name, "\n\n")
+    
+s3_uploader(id_2_paths)
+
+clear_directory(load_path)

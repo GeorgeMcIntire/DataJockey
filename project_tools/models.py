@@ -14,6 +14,9 @@ from .utils import json_opener, digit2letters
 import inflect
 import yaml
 from inspect import getsourcefile
+from tensorflow import keras
+from mule import Analysis
+from scooch import Config
 
 
 _this_module_file_path_ = os.path.abspath(getsourcefile(lambda: 0))
@@ -62,7 +65,7 @@ class Activator:
 		return outputs
 	
 	def batch_inference(self):
-		for sf, sid in tqdm(self.song_files):
+		for sf, sid in tqdm(self.song_files, desc = "Effnet Genre and Embeddings Activations"):
 			batch = self.spectro2batch(sf)
 			outputs = self._inference(batch)
 			yield (sid, sf,  outputs)
@@ -121,3 +124,20 @@ class Classifier:
 				output = tuple(output)
 				self.cur.execute(ins_query, output)
 		self.conn.commit()
+        
+# model = keras.models.load_model("/Users/georgemcintire/projects/djing/music-audio-representations/supporting_data/model", compile=False)
+# sr = 16000
+
+
+# cfg_avg = Config("/Users/georgemcintire/projects/djing/music-audio-representations/supporting_data/configs/mule_embedding_average.yml")
+# cfg_avg["Analysis"]["feature_transforms"][1]['EmbeddingFeature']['model_location'] = "/Users/georgemcintire/projects/djing/music-audio-representations/supporting_data/model"
+# cfg_avg["Analysis"]["source_feature"]["AudioWaveform"]["input_file"]["AudioFile"]['sample_rate'] = sr
+
+# analysis = Analysis(cfg_avg)     
+# def file2embed(file_path):
+#     analysis._source_feature.from_file(file_path)
+#     input_feature = analysis._source_feature
+#     for feature in analysis._feature_transforms:
+#         feature.from_feature(input_feature)
+#         input_feature = feature
+#     return input_feature
