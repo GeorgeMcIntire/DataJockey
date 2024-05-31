@@ -4,19 +4,11 @@ from tqdm import tqdm
 import onnx
 import onnxruntime as ort
 import librosa
-import json
 import os
-import io
-from time import time
 import pandas as pd
-from glob import glob
-from .utils import json_opener, digit2letters
-import inflect
+from .utils import json_opener, digit2letters, convert_array
 import yaml
 from inspect import getsourcefile
-from tensorflow import keras
-from mule import Analysis
-from scooch import Config
 
 
 _this_module_file_path_ = os.path.abspath(getsourcefile(lambda: 0))
@@ -104,16 +96,17 @@ class Classifier:
 		return ins_query
 	
 	
-	def batch_inference(self):
+	def batch_inference(self, tbl):
 		ins_query = self._create_ins_query()
 		self.conn = sqlite3.connect(self.db,detect_types= sqlite3.PARSE_DECLTYPES)
 		self.cur = self.conn.cursor()
 		self._create_table()
 		
 		with self.conn:
-			results = self.cur.execute("SELECT * FROM effnet_embeddings").fetchall()
+			results = self.cur.execute(f"SELECT * FROM {tbl}").fetchall()
 			results = [i for i in results if i[0] in self.new_ids]
 			for sid, embed in tqdm(results):
+				embed = convert_array(embed)
 				embed = embed[0]
 				preds = self._inference(embed)
 				output = [sid]
