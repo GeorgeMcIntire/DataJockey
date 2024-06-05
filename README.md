@@ -55,14 +55,43 @@ This repo holds the on-going analyses I conduct on the data extracted from Essen
 - [Scenario Querying](Notebooks/Scenario%20Querying.ipynb): I use the mood/style scores to generate playlists for certain types of events. For example if I'm playing a nightclub, then I need to query my database for songs that have high dance and energy scores.
 - [Unsupervised Learning - Dimensionality Reduction](Notebooks/Unsupervised%20Learning%20-%20Dimensionality%20Reduction.ipynb): I use dimensionality reduction methods to generate 2D maps of my song embeddings. This notebook includes links to two interactive plots generated using [Nomic](https://atlas.nomic.ai/)
 
+### Project Milestone: The Data Jockey Dashboard
+
+I am very happy to announce the latest update to the Data Jockey project: The Data Jockey Dashboard
+
+
+<img src="assets/homepage.png" width="500" height="500">
+
+I created a [Streamlit](https://streamlit.io/) app that provides easy and quick access to my database of songs and song data. The dashboard code can be found in the [dashboard directory](dashboard)
+Using this dashboard I can do things such as:
+
+- Retrieve the top n songs for a chosen mood or genre score, for example the top 10 happy or nu-disco songs.
+
+- Select songs based on a set of multiple conditions. The dashboard will display all the songs that meet a certain bpm, mood, or genre score. This provides a handy way to query songs based on DJing scenarios — see [Scenario Querying](Notebooks/Scenario%20Querying.ipynb) notebook of more information.
+- Show graphs that display data associated with a song. 
+- Return n most similar songs by having the option to query three different vector embedding databases.
+- Every table output of songs has a checkbox next to each song that allows me to add that song to a playlist which shows up on the dashboard homepage, where I have the option to listen to that song.
+
+Here are some screenshots of the dashboard in action
+
+<div style="display:flex;">
+<!--     <img src="assets/chose_n_topsongs.png" width="500" height="375"> -->
+<!--     <img src="assets/songfiltering.png" width="450" height="500"> -->
+    <img src="assets/chose_n_topsongs.png" width="400" height="300">
+    <img src="assets/songfiltering.png" width="350" height="410">
+</div>
+
+<div style="display:flex;">
+    <img src="assets/songsimilarity.png" width="425" height="290">
+    <img src="assets/select_embeddings.png" width="350" height="230">
+</div>
+
 
 ### Further Work
 
-I've only scrated the surface in terms of the analytical work. Future projects I want to publish include:
 
 - Clustering the embeddings.
-- Train my own supervised model to classify "energy" or another musical quality.
-- Build an autoencoder to address the variable length issue of the embeddings.
+- Training an information extraction model that can effectively extract entities such as artist, title, remixer, album, and label from song titles.
 
 
 If you have any suggestions/comments/questions please email me at geo.mcintire@gmail.com
