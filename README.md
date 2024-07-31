@@ -89,15 +89,22 @@ Here are some screenshots of the dashboard in action
 
 #### Project Update: LLM Metadata Extraction
 
-Using ChatGPT, I developed a [tool](project_tools/llm.py) to extract and save metadata information from the paths of the new songs I import into my library. This is a extremely helpful tool because it saves me a significant amount from manually writing that information out in RekordBox.
+Using ChatGPT, I developed a [tool](project_tools/llm.py) to extract and save metadata information from the paths of the new songs I import into my library. This is a extremely helpful tool because it saves me a significant amount from manually writing that information out in RekordBox. This [script](project_tools/llm.py) uses prompt engineering to guide ChatGPT in extracting the right information from each song path. I've successfully incorporated this tool into my [ETL pipeline](processor.py)
 
-Here's what Rekordbox looks like right I import a new batch of songs.
+Here's what Rekordbox looks like right I import a new batch of songs. All of the artist names are blank or incorrect.
 
 <div style="display:flex;">
-    <img src="assets/song_extract_before.png" width="290" height="425">
+    <img src="assets/song_extract_before.png" width="330" height="425">
 </div>
 
-Here
+Now here's what Rekordbox after incorporating my LLM metadata extraction tool. Every song's artist and title information is correct.
+
+<div style="display:flex;">
+    <img src="assets/song_extract_after.png" width="330" height="425">
+</div>
+
+
+
 
 ### Further Work
 
