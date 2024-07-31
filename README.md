@@ -87,10 +87,20 @@ Here are some screenshots of the dashboard in action
 </div>
 
 
+#### Project Update: LLM Metadata Extraction
+
+Using ChatGPT, I developed a [tool](project_tools/llm.py) to extract and save metadata information from the paths of the new songs I import into my library. This is a extremely helpful tool because it saves me a significant amount from manually writing that information out in RekordBox.
+
+Here's what Rekordbox looks like right I import a new batch of songs.
+
+<div style="display:flex;">
+    <img src="assets/song_extract_before.png" width="290" height="425">
+</div>
+
+Here
+
 ### Further Work
 
-
-- Clustering the embeddings.
 - Training an information extraction model that can effectively extract entities such as artist, title, remixer, album, and label from song titles.
 
 
