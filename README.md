@@ -94,13 +94,13 @@ Using ChatGPT, I developed a [tool](project_tools/llm.py) to extract and save me
 Here's what Rekordbox looks like right I import a new batch of songs. All of the artist names are blank or incorrect.
 
 <div style="display:flex;">
-    <img src="assets/song_extract_before.png" width="360" height="425">
+    <img src="assets/song_extract_before.png" width="380" height="425">
 </div>
 
 Now here's what Rekordbox after incorporating my LLM metadata extraction tool. Every song's artist and title information is correct.
 
 <div style="display:flex;">
-    <img src="assets/song_extract_after.png" width="360" height="425">
+    <img src="assets/song_extract_after.png" width="380" height="425">
 </div>
 
 
