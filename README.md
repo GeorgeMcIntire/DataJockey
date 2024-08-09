@@ -63,6 +63,9 @@ I am very happy to announce the latest update to the Data Jockey project: The Da
 <img src="assets/homepage.png" width="500" height="500">
 
 I created a [Streamlit](https://streamlit.io/) app that provides easy and quick access to my database of songs and song data. The dashboard code can be found in the [dashboard directory](dashboard)
+
+[Here's me explaining how the dashboard works](https://youtu.be/SaupmhroRy0)
+
 Using this dashboard I can do things such as:
 
 - Retrieve the top n songs for a chosen mood or genre score, for example the top 10 happy or nu-disco songs.
