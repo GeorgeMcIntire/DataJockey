@@ -109,11 +109,6 @@ Now here's what Rekordbox after incorporating my LLM metadata extraction tool. E
 
 
 
-### Further Work
-
-- Training an information extraction model that can effectively extract entities such as artist, title, remixer, album, and label from song titles.
-
-
 If you have any suggestions/comments/questions please email me at geo.mcintire@gmail.com
 
 
