@@ -1,10 +1,21 @@
 [project]
 name = "project_tools"
 version = "0.0.1"
+readme = "README.md"
 
 
 [tool.setuptools]
 packages = ["project_tools"]
+
+[tool.codeflash]
+# All paths are relative to this pyproject.toml's directory.
+module-root = "."
+tests-root = "tests"
+test-framework = "pytest"
+benchmarks-root = "tests/benchmarks"
+ignore-paths = []
+formatter-cmds = ["disabled"]
+
 
 [build-system]
 requires = ["setuptools>=51"]

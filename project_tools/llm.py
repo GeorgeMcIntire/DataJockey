@@ -1,5 +1,5 @@
 from typing import Optional
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
@@ -12,6 +12,10 @@ from openai import OpenAI
 import numpy as np
 import os
 from inspect import getsourcefile
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 openai_key_filepath = "/Users/georgemcintire/projects/djing/openaikey.txt"
 
@@ -39,7 +43,7 @@ output: artist:4 M International, title:Space Operator (Donato Dozzy Cadillac Rh
 """
 
 prompt_template = ChatPromptTemplate.from_messages([("system", system_template), ("user", "{text}")])
-llm = ChatOpenAI(model_name = "gpt-4", api_key=api_key, temperature = 0.0)
+llm = ChatOpenAI(model_name = "gpt-4o-mini", api_key=api_key, temperature = 0.0)
 
 class Song(BaseModel):
 	"""Metadata for a song"""
