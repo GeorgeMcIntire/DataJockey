@@ -1,0 +1,84 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "datajockey"
+version = "0.1.0"
+description = "Data Science Project for creating and maintaining a database of my music collection."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "George McIntire" }]
+keywords = ["audio", "music", "embeddings", "dj", "essentia", "onnx", "ml"]
+
+# Keep core runtime light; push heavy deps to extras.
+dependencies = [
+  "numpy>=1.24",                 # if NumPy 2.x causes issues, manage via constraints.txt
+  "pydantic>=2.6",
+  "typer>=0.12",
+  "rich>=13.7",
+  "tqdm>=4.66",
+  "pyyaml>=6.0",
+  "loguru>=0.7",
+]
+
+[project.optional-dependencies]
+audio = [
+  "librosa>=0.10",               # beware protobuf/numba pins; use constraints if needed
+  "soundfile>=0.12",
+  "torchaudio>=2.4; platform_system != 'Darwin' or platform_machine != 'arm64'",
+  "torch>=2.4",                  # you’ll manage CUDA/MPS builds in your env
+]
+onnx = [
+  "onnxruntime>=1.18",
+  "onnx>=1.16",
+]
+essentia = [
+  "essentia>=2.1.0b6; python_version < '3.12'",  # or the wheel you use
+]
+db = [
+  "sqlalchemy>=2.0",
+  "psycopg2-binary>=2.9",
+  "duckdb>=1.0",
+  "polars>=1.5",
+]
+vector = [
+  "qdrant-client>=1.10",
+  "pyarrow>=16.0",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "pre-commit>=3.7",
+  "ipykernel",
+]
+
+[project.scripts]
+datajockey = "datajockey.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/datajockey"]
+
+# Include small config files in the wheel
+[tool.hatch.build]
+include = [
+  "src/datajockey/configs/*.yml",
+]
+
+# Ruff & mypy (optional but recommended)
+[tool.ruff]
+line-length = 100
+select = ["E","F","I","UP","B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+strict = false
+
+# If you want auto-versioning from git tags later:
+# [tool.hatch.version]
+# source = "vcs"
