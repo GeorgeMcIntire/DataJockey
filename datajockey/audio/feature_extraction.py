@@ -5,7 +5,9 @@ from tqdm import tqdm
 import taglib
 import matchering as mg
 from .llm import metadata_extract
+import logging
 
+logger = logging.getLogger(__name__)
 
 def normalize_audio_extract_tags(
     audio_files: Iterable[Path],
@@ -30,7 +32,6 @@ def normalize_audio_extract_tags(
 
         try:
             if out_path.exists() and not overwrite:
-                logger.info("Already mastered (skip): %s", out_path.name)
                 written.append(out_path)
                 continue
 
@@ -82,8 +83,7 @@ def normalize_audio_extract_tags(
 
             written.append(out_path)
 
-        except taglib.TagLibException as e:
-            logger.warning("TagLib error on %s: %s", file.name, e)
+
         except Exception as e:
             logger.warning("Error normalizing %s: %s", file.name, e)
 
