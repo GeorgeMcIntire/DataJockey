@@ -1,0 +1,36 @@
+effnet_moods_model_cfg:
+  - path: ../onnx_models/approachability_2c-effnet_discogs-1.onnx
+    index: 1
+    col_name: approachable
+    
+  - path: ../onnx_models/danceability-effnet-discogs-1.onnx
+    index: 0
+    col_name: danceable
+    
+  - path: ../onnx_models/engagement_2c-effnet_discogs-1.onnx
+    index: 1
+    col_name: engagement
+    
+  - path: ../onnx_models/mood_acoustic-effnet-discogs-1.onnx
+    index: 1
+    col_name: acoustic
+    
+  - path: ../onnx_models/mood_aggressive-effnet-discogs-1.onnx
+    index: 0
+    col_name: aggressive
+    
+  - path: ../onnx_models/mood_happy-effnet-discogs-1.onnx
+    index: 0
+    col_name: happy
+    
+  - path: ../onnx_models/mood_party-effnet-discogs-1.onnx
+    index: 1
+    col_name: party
+    
+  - path: ../onnx_models/mood_sad-effnet-discogs-1.onnx
+    index: 1
+    col_name: sad
+    
+  - path: ../onnx_models/timbre-effnet-discogs-1.onnx
+    index: 0
+    col_name: timbre_bright

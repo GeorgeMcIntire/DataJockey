@@ -1,0 +1,20 @@
+FROM python:3.11-slim
+
+# System deps for audio I/O
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg libsndfile1 git ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+# Python deps (pins chosen for stability)
+RUN pip install --no-cache-dir \
+    numpy==1.26.4 \
+    soundfile==0.12.1 \
+    librosa==0.10.2.post1 \
+    torch==2.4.0 torchaudio==2.4.0 \
+    onnxruntime-gpu==1.18.0 \
+    modal==0.64.35 requests\
+    torch
+
+# Pull and install MAEST (editable so you can tweak if needed)
+RUN git clone https://github.com/palonso/MAEST.git /opt/maest && \
+    pip install -e /opt/maest
